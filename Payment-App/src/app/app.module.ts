@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { PaymentDetailsComponent } from './pages/payment-details/payment-details.component';
 import { PaymentDetailsFormComponent } from './cards/payment-details-form/payment-details-form.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
     PaymentDetailsComponent,
     PaymentDetailsFormComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
