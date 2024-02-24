@@ -1,4 +1,10 @@
-<form #form="ngForm" (submit)="onSubmit(form)">
+<form
+  #form="ngForm"
+  (submit)="onSubmit(form)"
+  [class.submitted]="service.formSubmit"
+  novalidate
+  autocomplete="off"
+>
   <input
     type="hidden"
     name="PaymentDetailId"
@@ -12,7 +18,18 @@
       #cardOwnerName="ngModel"
       name="cardOwnerName"
       [(ngModel)]="service.formData.cardOwnerName"
+      required
     />
+    <div
+      mb-5
+      mt-5
+      class="required"
+      *ngIf="
+        cardOwnerName.invalid && (cardOwnerName.touched || cardOwnerName.dirty)
+      "
+    >
+      <span *ngIf="cardOwnerName.errors?.['required']"> Required </span>
+    </div>
   </div>
   <div class="mb-3">
     <label for="cardNumber">Card Number</label>
@@ -22,7 +39,21 @@
       #cardNumber="ngModel"
       name="cardNumber"
       [(ngModel)]="service.formData.cardNumber"
+      required
+      minlength="16"
+      maxlength="16"
     />
+    <div
+      mb-5
+      mt-5
+      class="required"
+      *ngIf="cardNumber.invalid && (cardNumber.touched || cardNumber.dirty)"
+    >
+      <span *ngIf="cardNumber.errors?.['required']"> Required </span>
+      <span *ngIf="cardNumber.errors?.['minlength']">
+        Card Number must be 16 characters long.
+      </span>
+    </div>
   </div>
   <div class="row">
     <div class="mb-3 col-6">
@@ -33,7 +64,25 @@
         #securityCode="ngModel"
         name="securityCode"
         [(ngModel)]="service.formData.securityCode"
+        required
+        minlength="3"
+        maxlength="3"
       />
+      <div
+        mb-5
+        mt-5
+        class="required"
+        *ngIf="
+          securityCode.invalid && (securityCode.touched || securityCode.dirty)
+        "
+      >
+        <span *ngIf="securityCode.errors?.['required']"> Required </span>
+        <span
+          *ngIf="securityCode.errors?.['minlength'] || securityCode.errors?.['maxlength']"
+        >
+          Security Code must be 3 characters long.
+        </span>
+      </div>
     </div>
     <div class="mb-3 col-6">
       <label for="expirationDate">Valid Through</label>
@@ -43,7 +92,26 @@
         #expirationDate="ngModel"
         name="expirationDate"
         [(ngModel)]="service.formData.expirationDate"
+        required
+        minlength="5"
+        maxlength="5"
       />
+      <div
+        mb-5
+        mt-5
+        class="required"
+        *ngIf="
+          expirationDate.invalid &&
+          (expirationDate.touched || expirationDate.dirty)
+        "
+      >
+        <span *ngIf="expirationDate.errors?.['required']"> Required </span>
+        <span
+          *ngIf="expirationDate.errors?.['minlength'] || expirationDate.errors?.['maxlength']"
+        >
+          Expiration Date must be 5 characters long.
+        </span>
+      </div>
     </div>
   </div>
 

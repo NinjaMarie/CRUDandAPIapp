@@ -12,11 +12,31 @@ export class PaymentDetailsFormComponent {
   constructor(public service: PaymentDetailsService) {}
 
   onSubmit(form: NgForm): void {
+    this.service.formSubmit = true;
+    if (form.valid) {
+      if (this.service.formData.paymentId == 0) {
+        this.add(form);
+      } else {
+        this.update(form);
+      }
+    }
+  }
+
+  update(form: NgForm) {
+    this.service.putPaymentDetail().subscribe({
+      next: (res) => {
+        this.service.list = res as PaymentDetail[];
+        this.service.resetForm(form);
+      },
+      error: (err) => {},
+    });
+  }
+
+  add(form: NgForm) {
     this.service.postPaymentDetail().subscribe({
       next: (res) => {
         this.service.list = res as PaymentDetail[];
         this.service.resetForm(form);
-        // this.toaster.success('Payment Detail Added Succesfully!', '');
       },
       error: (err) => {},
     });
