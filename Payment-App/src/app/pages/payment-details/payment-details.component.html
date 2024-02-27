@@ -19,7 +19,9 @@
             {{ pd.cardNumber }}
           </div>
           <div class="fw-bold">
-            {{ pd.expirationDate }}
+            <p class="p-info">
+              Please add Additional Info for your Payment to proceed.
+            </p>
           </div>
         </div>
         <div class="row col-3">
@@ -32,7 +34,7 @@
           <span class="text-secondary">
             <i
               class="fa-brands fa-readme fa-lg mouse-hover mb-2"
-              (click)="onViewForm()"
+              (click)="onViewForm(pd.paymentId)"
             >
             </i
           ></span>
@@ -42,6 +44,12 @@
               (click)="onPopulateForm(pd)"
             ></i
           ></span>
+          <span class="text-secondary">
+            <i
+              class="fa-solid fa-plus fa-lg mouse-hover"
+              (click)="onAddDetail()"
+            ></i>
+          </span>
         </div>
       </li>
     </ul>

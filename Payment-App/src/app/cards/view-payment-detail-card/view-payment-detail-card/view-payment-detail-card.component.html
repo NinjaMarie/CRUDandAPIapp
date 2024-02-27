@@ -1,0 +1,41 @@
+<form #form="ngForm">
+  <div class="row mt-5 mb-5">
+    <div class="col-3"></div>
+    <div class="col-6 mb-5">
+      <h2 class="mb-5">{{ data?.cardOwnerName }}</h2>
+      <ul class="list-group">
+        <li
+          class="list-group-item d-flex justify-content-between align-items-start mb-2 border px-4 py-3 rounded-3"
+        >
+          <div class="flex-grow-1">
+            <div class="mb-2">
+              <div class="fw-bold">Card Owner name</div>
+              <div>{{ data?.cardOwnerName }}</div>
+            </div>
+            <div class="mb-2">
+              <div class="fw-bold">Card Number</div>
+              <div>{{ data?.cardNumber }}</div>
+            </div>
+            <div class="mb-2">
+              <div class="fw-bold">Expiration Date</div>
+              <div>{{ data?.expirationDate }}</div>
+            </div>
+            <div class="mb-2">
+              <div class="fw-bold">Security Code</div>
+              <div>{{ data?.securityCode }}</div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class="col-6">
+        <button class="btn btn-primary btn-space" (click)="onBackToPrevious()">
+          Back to Previous
+        </button>
+        <button class="btn btn-success" (click)="onAddDetail()">
+          Add Details
+        </button>
+      </div>
+    </div>
+    <div class="col-3"></div>
+  </div>
+</form>

@@ -1,1 +1,7 @@
-<p>view-payment-detail works!</p>
+<app-view-payment-detail-card
+  [data]="viewDetaildata"
+  (backToPrevious)="onBackToPrevious()"
+  (addDetail)="onAddDetail()"
+>
+</app-view-payment-detail-card>
+<!-- <app-add-detail-page *ngIf="isViewAddDetail"></app-add-detail-page> -->

@@ -24,3 +24,21 @@ form.submitted input.ng-invalid {
   font-size: large;
   color: red;
 }
+
+.btn-space {
+  margin-right: 5px;
+}
+
+.label-space {
+  margin-right: 5px;
+}
+
+.h3 {
+  color: black;
+  font-size: large;
+}
+.p-info {
+  color: blue;
+  font-weight: 200;
+  font-size: large;
+}

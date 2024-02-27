@@ -1,0 +1,135 @@
+<form [formGroup]="addDetailFormGroup">
+  <div class="col-2"></div>
+  <div class="col-8">
+    <!-- <input
+    type="hidden"
+    name="PaymentDetailId"
+    [value]="service.formData.paymentId"
+  /> -->
+    <div class="mb-3">
+      <label for="name">Card Owner Name</label>
+      <input
+        class="form-control form-control-lg"
+        placeholder="juan dela Cruz"
+        formControlName="name"
+        required
+      />
+      <div
+        mb-5
+        mt-5
+        class="required"
+        *ngIf="name?.invalid && (name?.touched || name?.dirty)"
+      >
+        <span> Required </span>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="cardNumber">Card Number</label>
+      <input
+        class="form-control form-control-lg"
+        placeholder="Please insert 16 digit card number."
+        formControlName="cardNumber"
+        required
+      />
+      <div
+        mb-5
+        mt-5
+        class="required"
+        *ngIf="
+          cardNumber?.invalid && (cardNumber?.touched || cardNumber?.dirty)
+        "
+      >
+        <span> Required </span>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="emailAddress">Email Address</label>
+      <input
+        class="form-control form-control-lg"
+        placeholder="juandelacrus@gmail.com"
+        formControlName="emailAddress"
+        required
+      />
+      <div
+        mb-5
+        mt-5
+        class="required"
+        *ngIf="
+          emailAddress?.invalid &&
+          (emailAddress?.touched || emailAddress?.dirty)
+        "
+      >
+        <span> Required </span>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="reason">Payment For</label>
+      <select
+        class="form-select"
+        aria-label="Default select example"
+        formControlName="reason"
+      >
+        <option selected>Choose Here</option>
+        <option value="1">Bills</option>
+        <option value="2">Insurance</option>
+        <option value="3">Loan</option>
+      </select>
+      <div
+        mb-5
+        mt-5
+        class="required"
+        *ngIf="reason?.invalid && (reason?.touched || reason?.dirty)"
+      >
+        <span> Required </span>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="contactNumber">Contact Number</label>
+      <input
+        class="form-control form-control-lg"
+        placeholder="Please provide Active Number"
+        formControlName="contactNumber"
+        required
+      />
+      <div
+        mb-5
+        mt-5
+        class="required"
+        *ngIf="
+          contactNumber?.invalid &&
+          (contactNumber?.touched || contactNumber?.dirty)
+        "
+      >
+        <span> Required </span>
+      </div>
+    </div>
+    <div class="mb-3">
+      <div>
+        <input
+          type="radio"
+          class="form-check-input"
+          id="radio1"
+          name="status"
+          value="Approved"
+        />
+        Approved
+        <label class="form-check-label" for="status"></label>
+      </div>
+      <div
+        mb-5
+        mt-5
+        class="required"
+        *ngIf="status?.invalid && (status?.touched || status?.dirty)"
+      >
+        <span> Required </span>
+      </div>
+    </div>
+    <button class="btn btn-outline-primary btn-space" (click)="onCancel()">
+      Cancel
+    </button>
+    <button class="btn btn-success btn-space" (click)="onSubmitDetail()">
+      Submit
+    </button>
+  </div>
+  <div class="col-2"></div>
+</form>
